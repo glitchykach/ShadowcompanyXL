@@ -2,33 +2,42 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Shadow Company | Clan Dashboard</title>
     <style>
-        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; }
-        .header { text-align: center; color: #ff0000; border-bottom: 3px solid #ff0000; padding: 20px; text-transform: uppercase; }
-        .header h1 { margin-bottom: 5px; }
-        .header p { font-style: italic; color: #aaaaaa; letter-spacing: 1px; }
-        .container { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; justify-content: center; }
-        .section { background: #1a1a1a; padding: 20px; border-radius: 10px; flex: 1; min-width: 350px; border: 1px solid #333; }
-        h2 { color: #ff0000; border-bottom: 1px solid #444; padding-bottom: 10px; }
-        
-        .member-card { background: #252525; margin: 8px 0; padding: 12px; border-radius: 5px; border-right: 4px solid #ff0000; transition: 0.3s; }
-        .member-card:hover { background: #333; }
-        
-        /* افکت درخشش قرمز */
-        .glow-red { color: #ff0000; text-shadow: 0 0 8px #ff0000, 0 0 15px #ff0000; font-weight: bold; }
-        
-        /* افکت درخشش سبز-آبی برای اعضای افتخاری */
-        .eglow { 
-            color: #00ffcc; 
-            text-shadow: 0 0 8px #00ffcc, 0 0 15px #00ffcc; 
-            font-weight: bold; 
-            border-right: 4px solid #00ffcc !important; 
+        body { 
+            background-color: #0a0a0a; 
+            color: #ffffff; 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-image: radial-gradient(circle at 50% 50%, #1a0000 0%, #0a0a0a 100%); 
+            overflow-x: hidden; 
         }
+
+        .header { text-align: center; color: #ff0000; border-bottom: 3px solid #ff0000; padding: 20px; text-transform: uppercase; text-shadow: 0 0 10px #ff0000; }
+        .header h1 { margin-bottom: 5px; font-size: 2.5em; letter-spacing: 3px; }
         
-        .owner { border: 2px solid #ff0000; background: #4a0000; text-align: center; font-weight: bold; padding: 15px; margin-bottom: 20px; font-size: 1.2em; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; justify-content: center; }
+        .section { background: #111; padding: 20px; border-radius: 10px; flex: 1; min-width: 300px; max-width: 100%; border: 1px solid #333; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        h2 { color: #ff0000; border-bottom: 1px solid #444; padding-bottom: 10px; text-transform: uppercase; font-size: 1.2em; }
+        
+        .member-card { background: #1a1a1a; margin: 8px 0; padding: 12px; border-radius: 5px; border-right: 4px solid #ff0000; transition: 0.4s; cursor: pointer; }
+        .member-card:hover { background: #252525; transform: translateX(-5px); border-right-width: 8px; }
+        
+        .glow-red { color: #ff0000; text-shadow: 0 0 8px #ff0000; font-weight: bold; }
+        
+        @keyframes pulse { 0% { box-shadow: 0 0 5px #ff0000; } 50% { box-shadow: 0 0 20px #ff0000; } 100% { box-shadow: 0 0 5px #ff0000; } }
+        .owner { border: 2px solid #ff0000; background: #2a0000; text-align: center; font-weight: bold; padding: 15px; margin-bottom: 20px; font-size: 1.3em; animation: pulse 2s infinite; }
+        
+        .eglow { color: #00ffcc; text-shadow: 0 0 10px #00ffcc; font-weight: bold; border-right: 4px solid #00ffcc !important; }
+        
+        .recorder-box { border-right: 4px solid #ff0000; background: #000; padding: 15px; border-radius: 5px; color: #ff0000; font-family: monospace; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .recording-dot { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+
         ul { list-style: none; padding: 0; }
-        li { padding: 10px; background: #252525; margin: 5px 0; border-left: 3px solid #ff0000; }
+        li { padding: 10px; background: #1a1a1a; margin: 8px 0; border-left: 3px solid #ff0000; border-radius: 0 5px 5px 0; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -39,22 +48,43 @@
     </div>
 
     <div class="container">
-        <div class="section">
-            <h2>تجهیزات و سلاح‌های محبوب کلن</h2>
-            <ul>
-                <li><strong>Ak117</strong></li>
-                <li><strong>CBR4</strong></li>
-                <li><strong>ICR1</strong></li>
-                <li><strong>DLQ</strong></li>
-                <li><strong>BOXING GLOVES</strong></li>
-                <li><strong>HS</strong></li>
-            </ul>
+        <div style="flex: 1; min-width: 300px;">
+            <div class="section">
+                <h2>تجهیزات تاکتیکی</h2>
+                <ul>
+                    <li><strong>Ak117</strong> | Assault</li>
+                    <li><strong>CBR4</strong> | SMG</li>
+                    <li><strong>ICR1</strong> | Assault</li>
+                </ul>
+            </div>
+            
+            <div class="section" style="margin-top: 20px;">
+                <h2>وضعیت کلن</h2>
+                <div class="recorder-box">
+                    <span class="recording-dot"></span> Legendary league : Recorder
+                </div>
+            </div>
+
+            <div class="section" style="margin-top: 20px;">
+                <h2>Tournament Ranking</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <div class="member-card" style="padding: 5px;">1. AmirAbbas</div>
+                    <div class="member-card" style="padding: 5px;">2. Kaveh</div>
+                    <div class="member-card" style="padding: 5px;">3. Artin</div>
+                    <div class="member-card" style="padding: 5px;">4. Kasra</div>
+                    <div class="member-card" style="padding: 5px;">5. Matin</div>
+                    <div class="member-card" style="padding: 5px;">6. AmirAli</div>
+                    <div class="member-card" style="padding: 5px;">7. Mehdi</div>
+                    <div class="member-card" style="padding: 5px;">8. Aria</div>
+                    <div class="member-card" style="padding: 5px;">9. Mahan</div>
+                    <div class="member-card" style="padding: 5px;">10. Parham</div>
+                </div>
+            </div>
         </div>
 
         <div class="section">
             <h2>اعضای اصلی کلن</h2>
             <div class="owner">Owner: SC么ƁATMAN</div>
-            <p style="text-align: center; color: #ff0000; margin-bottom: 20px;">سازنده سایت: SC么Veronica</p>
             
             <div class="member-card glow-red">SC么Ɠreen</div>
             <div class="member-card">SC么byrē.ãll</div>
@@ -68,7 +98,6 @@
             <div class="member-card">SC么ĮŊŞÀŊE</div>
             <div class="member-card">SC⁠≧Kasra</div>
 
-            <!-- بخش اعضای افتخاری -->
             <h2 style="margin-top: 30px;">اعضای افتخاری</h2>
             <div class="member-card eglow">É_60_-</div>
         </div>
